@@ -1,58 +1,64 @@
-import React from "react";
+import React from 'react';
 import CartItem from './CartItem';
 
-class Cart extends React.Component{
-        constructor (){
-        super();
-        this.state ={
-            products:
-       [   
-           
-        {  price: 999,
-            title: 'watch',
-            qty: 100,
-            img: '',
-            id: 1
+class Cart extends React.Component {
+  constructor () {
+    super();
+    this.state = {
+      products: [
+        {
+          price: 99,
+          title: 'Watch',
+          qty: 1,
+          img: '',
+          id: 1
         },
-            
-           
-           
-            {  price: 999,
-                title: 'Phone',
-                qty: 15,
-                img: ''  ,
-                id: 2
-            },
-                
-                
-                {  price: 999,
-                    title: 'laptop',
-                    qty: 122,
-                    img: ''  ,
-                    id: 3
-                },
-        
-        ]
+        {
+          price: 999,
+          title: 'Mobile Phone',
+          qty: 10,
+          img: '',
+          id: 2
+        },
+        {
+          price: 999,
+          title: 'Laptop',
+          qty: 4,
+          img: '',
+          id: 3
         }
-
-        // this.increaseQuantity = this.increaseQuantity.bind(this);
+      ]
     }
-render() {
-    const {products} = this.state;
+    // this.increaseQuantity = this.increaseQuantity.bind(this);
+    // this.testing();
+  }
+  handleIncreaseQuantity = (product) => {
+    console.log('Heyy please inc the qty of ', product);
+    const { products } = this.state;
+    const index = products.indexOf(product);
+
+    products[index].qty += 1;
+
+    this.setState({
+      products
+    })
+  }
+  render () {
+    const { products } = this.state;
     return (
-       <div className="Cart">
-           
-           { products.map((product)=>{
-               return <CartItem product={product} key={product.id} />
-
-           })}
-           
-       </div>
+      <div className="cart">
+        {products.map((product) => {
+          return (
+            <CartItem
+              product={product}
+              key={product.id}
+              onIncreaseQuantity={this.handleIncreaseQuantity}
+            />
+          )
+        })}
+      </div>
     );
+  }
 }
-}
-
-
-
 
 export default Cart;
