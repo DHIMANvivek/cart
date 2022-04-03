@@ -1,5 +1,5 @@
 import CartItem from "./CartItem";
-
+import Cart from "./Cart";
 function App() {
 
 
@@ -8,7 +8,8 @@ function App() {
 
   return (
     <div className="App">
-      <CartItem/>
+      {/* <CartItem/> */}
+      <Cart/>
     </div>
   );
 }
