@@ -1,15 +1,10 @@
-import CartItem from "./CartItem";
-import Cart from "./Cart";
+import React from 'react';
+import Cart from './Cart';
+
 function App() {
-
-
-
-  
-
   return (
     <div className="App">
-      {/* <CartItem/> */}
-      <Cart/>
+      <Cart />
     </div>
   );
 }
